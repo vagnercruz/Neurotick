@@ -1,4 +1,26 @@
-<div>
-  <h1 class="font-bold text-4xl">Habits#show</h1>
-  <p>Find me in app/views/habits/show.html.erb</p>
-</div>
+<h2 class="text-2xl font-semibold mb-4"><%= @habit.name %></h2>
+
+<table class="table-auto border-collapse">
+  <thead>
+    <tr>
+      <th class="px-4 py-2">Data</th>
+      <th class="px-4 py-2">Feito?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @dates.each do |date| %>
+      <tr>
+        <td class="border px-4 py-2"><%= date.strftime("%d/%m/%Y") %></td>
+        <td class="border px-4 py-2">
+          <%= form_with url: toggle_completion_path(@habit, date), method: :post do %>
+            <button class="px-2 py-1 rounded <%= @habit.completed_on?(date) ? 'bg-green-500' : 'bg-gray-300' %>">
+              <%= @habit.completed_on?(date) ? "✔️" : "Marcar" %>
+            </button>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Voltar", habits_path, class: "text-blue-500 mt-4 inline-block" %>

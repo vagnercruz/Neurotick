@@ -1,4 +1,11 @@
-<div>
-  <h1 class="font-bold text-4xl">Habits#index</h1>
-  <p>Find me in app/views/habits/index.html.erb</p>
-</div>
+<h1 class="text-3xl font-bold mb-4">Seus Hábitos</h1>
+
+<%= link_to "Novo Hábito", new_habit_path, class: "bg-blue-500 text-white px-4 py-2 rounded" %>
+
+<ul class="mt-4">
+  <% @habits.each do |habit| %>
+    <li class="my-2">
+      <%= link_to habit.name, habit_path(habit), class: "text-blue-600 hover:underline" %>
+    </li>
+  <% end %>
+</ul>
