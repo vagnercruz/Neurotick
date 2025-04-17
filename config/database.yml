@@ -1,11 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
 development:
   <<: *default
   database: neurotick
   username: vagnercruz
   password: asdpoi04
+  host: localhost
 
 test:
   <<: *default
   database: neurotick
   username: vagnercruz
   password: asdpoi04
+  host: localhost
