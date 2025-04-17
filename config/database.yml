@@ -1,0 +1,11 @@
+development:
+  <<: *default
+  database: neurotick
+  username: vagnercruz
+  password: asdpoi04
+
+test:
+  <<: *default
+  database: neurotick
+  username: vagnercruz
+  password: asdpoi04
