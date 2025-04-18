@@ -1,15 +1,15 @@
-<h2 class="text-2xl mb-4">Novo Hábito</h2>
+<h2 class="text-2xl font-bold mb-6">Criar Novo Hábito</h2>
 
 <%= form_with model: @habit, local: true do |form| %>
-  <div class="mb-2">
-    <%= form.label :name, "Nome do Hábito", class: "block" %>
-    <%= form.text_field :name, class: "border p-2 w-full" %>
+  <div class="mb-4">
+    <%= form.label :name, class: "block text-sm font-medium text-gray-700" %>
+    <%= form.text_field :name, class: "mt-1 block w-full border border-gray-300 rounded-md p-2" %>
   </div>
-  <div class="mb-2">
-    <%= form.label :user, "Usuário", class: "block" %>
-    <%= form.text_field :user, class: "border p-2 w-full" %>
-  </div>
-  <%= form.submit "Criar", class: "bg-blue-500 text-white px-4 py-2 rounded" %>
-<% end %>
 
-<%= link_to "Voltar", habits_path, class: "text-blue-500 mt-4 inline-block" %>
+  <div class="mb-4">
+    <%= form.label :description, class: "block text-sm font-medium text-gray-700" %>
+    <%= form.text_area :description, rows: 3, class: "mt-1 block w-full border border-gray-300 rounded-md p-2" %>
+  </div>
+
+  <%= form.submit "Salvar", class: "bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded" %>
+<% end %>

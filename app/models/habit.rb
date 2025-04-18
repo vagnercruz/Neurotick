@@ -1,5 +1,7 @@
 class Habit < ApplicationRecord
   has_many :completions, dependent: :destroy
+  belongs_to :user
+
 
   def completed_on?(date)
     completions.exists?(completed_on: date)
